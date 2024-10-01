@@ -1,0 +1,15 @@
+li.finished .label {
+    opacity: .4;
+    text-decoration: line-through;
+}
+.custom-card-margin {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+.card-img-custom {
+    width: 100%;         
+    height: 250px;       
+    object-fit: contain; 
+    background-color: black; 
+}

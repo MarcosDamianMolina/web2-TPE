@@ -1,0 +1,12 @@
+<?php require_once 'layouts/header.phtml' ?>
+
+<h1 class="text-center mb-4">Categorias</h1>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <?php foreach ($genres as $genre): ?>
+        <a href="categoria/<?= $genre->id ?>" class="btn btn-primary"><?= $genre->genre ?></a>
+    <?php endforeach ?>
+</div>
+
+
+<?php require_once 'layouts/footer.phtml' ?>
+
