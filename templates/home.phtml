@@ -1,5 +1,4 @@
 <?php require_once 'layouts/header.phtml' ?>
-
 <div class="container">
   <h1 class="text-center mb-4">Catálogo de Películas</h1>
   
@@ -12,12 +11,11 @@
             <h5 class="card-title"><?= $movie->title ?></h5>
             <p class="card-text"><strong>Director:</strong> <?= $movie->director ?></p>
             <p class="card-text"><strong>Género:</strong> <?= $movie->genre ?></p>
-            <a href="pelicula/<?= $movie->id ?>" class="btn btn-primary">Leer mas</a>
+            <a href="pelicula/<?= $movie->id ?>" class="btn btn-outline-primary">Leer mas</a>
           </div>
         </div>
       </div>
     <?php endforeach; ?>
   </div>
 </div>
-
 <?php require_once 'layouts/footer.phtml' ?>
