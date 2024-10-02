@@ -10,7 +10,7 @@ class MovieModel
 
     public function getMovies()
     {
-        $query = $this->db->prepare('SELECT * FROM movie');
+        $query = $this->db->prepare('SELECT m.*, g.genre FROM movie m JOIN genre g ON m.id_genre = g.id');
         $query->execute();
 
         $movies = $query->fetchAll(PDO::FETCH_OBJ);
@@ -26,7 +26,7 @@ class MovieModel
     }
     public function getMoviesByGenre($id_genre)
     {
-        $query = $this->db->prepare('SELECT * FROM movie WHERE id_genre = ?');
+        $query = $this->db->prepare('SELECT m.*, g.genre FROM movie m JOIN genre g ON m.id_genre = g.id WHERE m.id_genre = ?');
         $query->execute([$id_genre]);
         $movies = $query->fetchAll(PDO::FETCH_OBJ);
         return $movies;
