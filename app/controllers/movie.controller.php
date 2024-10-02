@@ -20,4 +20,8 @@ class MovieController
       $movies = $this->model->getMoviesByGenre($id_genre);
       return $this->view->showMovies($movies);
    }
+   function showMovieById($id){
+      $movie = $this->model->getMovieById($id);
+      return $this->view->showMovieById($movie);
+   }
 }

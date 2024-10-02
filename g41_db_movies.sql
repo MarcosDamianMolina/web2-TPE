@@ -53,7 +53,7 @@ CREATE TABLE `movie` (
   `title` varchar(70) NOT NULL,
   `director` varchar(30) NOT NULL,
   `id_genre` int(11) NOT NULL,
-  `descripcion` text NOT NULL,
+  `description` text NOT NULL,
   `img` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

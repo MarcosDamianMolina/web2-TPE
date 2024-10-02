@@ -28,7 +28,7 @@ switch ($params[0]) {
         break;
     case 'pelicula':
         $controller = new MovieController();
-        //showMoviesById($params[1]);
+        $controller->showMovieById($params[1]);
         break;
     case 'categorias':
         $controller = new GenreController();
