@@ -4,11 +4,13 @@ require_once 'app/controllers/error.controller.php';
 require_once 'app/controllers/genre.controller.php';
 
 ////////////////////TABLA DE CASOS/////////////////
-// home ----> showMovies();
-// pelicula ------> showMoviesById(id);
+// home ----> MovieController->showMovies();
+// pelicula/:ID ------> MovieController->showMoviesById(id);
+// agregar -------> MovieController->addMovie();
+// editar/:ID -------> MovieController->updateMovie(id);
+// eliminar/:ID ------> MovieController->deleteMovie(id);
 // categorias ------> showGenres();
-// categoria ------> showMovieByGenre(genre);
-// director ------> showMoviesByDirector(id);
+// categoria/:ID ------> showMovieByGenre(id_genre);
 
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');

@@ -1,11 +1,17 @@
 <?php require_once 'layouts/header.phtml'; ?>
 
-<div class="card mb-6 custom-card-margin">
-    <img src="<?= $movie->img ?>" class="card-img-top" alt="Portada de <?= $movie->title ?>">
-    <div class="card-body">
-        <h5 class="card-title text-center mb-4"><?= $movie->title ?></h5>
-        <p class="card-text text-center mb-4"><strong>Director:</strong> <?= $movie->director ?></p>
-        <p class="card-text text-center mb-4"> <strong>Género:</strong> <?= $movie->description ?></p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card mb-6 custom-card-margin">
+                <img src="<?= $movie->img ?>" class="card-img-top" alt="Portada de <?= $movie->title ?>">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4"><?= $movie->title ?></h5>
+                    <p class="card-text text-center mb-4"><strong>Director:</strong> <?= $movie->director ?></p>
+                    <p class="card-text text-center mb-4"> <strong>Género:</strong> <?= $movie->description ?></p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
