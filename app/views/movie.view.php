@@ -14,4 +14,7 @@ class MovieView
     {
         require_once 'templates/movie.phtml';
     }
+    public function showFormAdd($genres){
+        require_once 'templates/form_nueva_movie.phtml';
+    }
 }

@@ -40,6 +40,13 @@ switch ($params[0]) {
         $controller = new MovieController();
         $controller->showMoviesByGenre($params[1]);
         break;
+    case 'mostrarAgregar':
+        $controller = new MovieController();
+        $controller->showaddMovie();
+        break;
+    case 'agregar':
+        $controller = new MovieController();
+        $controller->addMovie();
     default:
         $controller = new ErrorController();
         $controller->showError("Error 404 Not Found");

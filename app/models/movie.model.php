@@ -33,6 +33,7 @@ class MovieModel
     }
     public function insertMovie($title, $director, $genre, $description, $img){
         $query = $this->db->prepare('INSERT INTO movie(title, director, genre, description, img) VALUES (?, ?, ?, ?, ?)');
+        $query->execute($title, $director, $genre, $description, $img);
     }
     public function removeMovie($id){
         $query = $this->db->prepare('DELETE FROM movie WHERE id = ?');
