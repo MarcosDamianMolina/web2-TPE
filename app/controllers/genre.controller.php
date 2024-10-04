@@ -6,10 +6,10 @@ class GenreController
     private $model;
     private $view;
 
-    public function __construct()
+    public function __construct($res)
     {
         $this->model = new GenreModel();
-        $this->view = new GenreView();
+        $this->view = new GenreView($res->user);
     }
     function showGenres(){
         $genres = $this->model->getGenres();
