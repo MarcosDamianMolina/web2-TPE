@@ -1,6 +1,9 @@
 <?php require_once 'layouts/header.phtml' ?>
 
-<form action="agregar" method="POST" class="my-4">
+
+<?php var_dump($genres); ?>
+<div class="row justify-content-center">
+<form action="agregar" method="POST" class="row justify-content-center my-4 col-lg-6">
     <div class="row">
         <div class="col-9">
             <div class="form-group">
@@ -18,11 +21,11 @@
         <div class="col-3">
             <div class="form-group">
                 <label>Genero</label>
-                <?php foreach ($genres as $genre): ?>
-                    <select required name="genre" class="form-control">
+                <select required name="genre" class="form-control">
+                    <?php foreach ($genres as $genre) : ?>
                         <option value="<?= $genre->id ?>"> <?= $genre->genre ?></option>
-                    </select>
-                <?php endforeach ?>
+                    <?php endforeach ?>
+                </select>
             </div>
         </div>
     </div>
@@ -34,5 +37,6 @@
 
     <button type="submit" class="btn btn-primary mt-2">Guardar</button>
 </form>
+</div>
 
 <?php require_once 'layouts/footer.phtml' ?>

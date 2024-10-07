@@ -1,0 +1,25 @@
+<?php require_once 'layouts/header.phtml' ?>
+<div class="container">
+  <h1 class="text-center mb-4">Editar Películas</h1>
+  
+  <div class="row row-cols-1 row-cols-md-4 custom-card-margin">
+  <a href="agregar" class="btn btn-outline-primary">Agregar pelicula</a>
+    <?php foreach ($movies as $movie): ?>
+      <div class="col ml-1 mr-1">
+        <div class="card" style="width: 18rem;">
+          <img src="<?= $movie->img ?>" class="card-img-top card-img-custom" alt="Portada de <?= $movie->title ?>">
+          <div class="card-body">
+            <h5 class="card-title"><?= $movie->title ?></h5>
+            <p class="card-text"><strong>Director:</strong> <?= $movie->director ?></p>
+            <p class="card-text"><strong>Género:</strong> <?= $movie->genre ?></p>
+            <a href="pelicula/<?= $movie->id ?>" class="btn btn-outline-primary">Leer mas</a>
+            <a href="editar/<?= $movie->id ?>" class="btn btn-outline-warning">Editar</a>
+            <a href="eliminar/<?= $movie->id ?>" class="btn btn-outline-danger">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</div>
+
+<?php require_once 'layouts/footer.phtml' ?>

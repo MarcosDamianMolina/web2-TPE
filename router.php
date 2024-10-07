@@ -40,6 +40,10 @@ switch ($params[0]) {
         $controller = new MovieController();
         $controller->showMoviesByGenre($params[1]);
         break;
+    case 'editar':
+        $controller = new MovieController();
+        $controller->showEditMovies();
+        break;
     case 'mostrarAgregar':
         $controller = new MovieController();
         $controller->showaddMovie();
@@ -47,6 +51,11 @@ switch ($params[0]) {
     case 'agregar':
         $controller = new MovieController();
         $controller->addMovie();
+        break;
+    case 'eliminar':
+        $controller = new MovieController();
+        $controller->deleteMovie($params[1]);
+        break;
     default:
         $controller = new ErrorController();
         $controller->showError("Error 404 Not Found");
