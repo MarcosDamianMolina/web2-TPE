@@ -1,7 +1,10 @@
 <?php
+require_once 'libs/response.php';
+require_once 'app/middlewares/session.auth.middleware.php';
 require_once 'app/controllers/movie.controller.php';
 require_once 'app/controllers/error.controller.php';
 require_once 'app/controllers/genre.controller.php';
+require_once 'app/controllers/auth.controller.php';
 
 ////////////////////TABLA DE CASOS/////////////////
 // home ----> MovieController->showMovies();
@@ -15,6 +18,8 @@ require_once 'app/controllers/genre.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
+$res = new Response();
+
 $action = 'home'; // accion por defecto si no se envia ninguna
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -25,37 +30,45 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'home':
-        $controller = new MovieController();
+        sessionAuthMiddleware($res);
+        $controller = new MovieController($res);
         $controller->showMovies();
         break;
     case 'pelicula':
-        $controller = new MovieController();
+        sessionAuthMiddleware($res);
+        $controller = new MovieController($res);
         $controller->showMovieById($params[1]);
         break;
     case 'categorias':
-        $controller = new GenreController();
+        sessionAuthMiddleware($res);
+        $controller = new GenreController($res);
         $controller->showGenres();
         break;
     case 'categoria':
-        $controller = new MovieController();
+        sessionAuthMiddleware($res);
+        $controller = new MovieController($res);
         $controller->showMoviesByGenre($params[1]);
         break;
-    case 'editar':
-        $controller = new MovieController();
-        $controller->showEditMovies();
+    case 'showLogin':
+        $controller = new AuthController();
+        $controller->showLogin();
         break;
+    case 'login':
+        $controller = new AuthController();
+        $controller->login();
+        break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();        
     case 'mostrarAgregar':
-        $controller = new MovieController();
+        sessionAuthMiddleware($res);
+        $controller = new MovieController($res);
         $controller->showaddMovie();
         break;
     case 'agregar':
-        $controller = new MovieController();
+        sessionAuthMiddleware($res);
+        $controller = new MovieController($res);
         $controller->addMovie();
-        break;
-    case 'eliminar':
-        $controller = new MovieController();
-        $controller->deleteMovie($params[1]);
-        break;
     default:
         $controller = new ErrorController();
         $controller->showError("Error 404 Not Found");
