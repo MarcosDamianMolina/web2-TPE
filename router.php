@@ -30,22 +30,22 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'home':
-        sessionAuthMiddleware($res);
+        //saque la validacion del user
         $controller = new MovieController($res);
         $controller->showMovies();
         break;
     case 'pelicula':
-        sessionAuthMiddleware($res);
+        // saque la validacion del user
         $controller = new MovieController($res);
         $controller->showMovieById($params[1]);
         break;
     case 'categorias':
-        sessionAuthMiddleware($res);
+        // saque la validacion del user
         $controller = new GenreController($res);
         $controller->showGenres();
         break;
     case 'categoria':
-        sessionAuthMiddleware($res);
+        // saque la validacion del user
         $controller = new MovieController($res);
         $controller->showMoviesByGenre($params[1]);
         break;
@@ -59,14 +59,18 @@ switch ($params[0]) {
         break;
     case 'logout':
         $controller = new AuthController();
-        $controller->logout();        
+        $controller->logout();
     case 'mostrarAgregar':
-        sessionAuthMiddleware($res);
+        // saque la validacion del user
         $controller = new MovieController($res);
         $controller->showaddMovie();
         break;
+    case 'editar':
+        $controller = new MovieController($res);
+        $controller->showEditMovies();
+        break;
     case 'agregar':
-        sessionAuthMiddleware($res);
+        // saque la validacion del user
         $controller = new MovieController($res);
         $controller->addMovie();
     default:
