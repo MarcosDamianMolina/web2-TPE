@@ -53,7 +53,7 @@ CREATE TABLE `movie` (
   `title` varchar(70) NOT NULL,
   `director` varchar(30) NOT NULL,
   `id_genre` int(11) NOT NULL,
-  `description` text NOT NULL,
+  `descrip` text NOT NULL,
   `img` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -61,7 +61,7 @@ CREATE TABLE `movie` (
 -- Volcado de datos para la tabla `movie`
 --
 
-INSERT INTO `movie` (`id`, `title`, `director`, `id_genre`, `description`, `img`) VALUES
+INSERT INTO `movie` (`id`, `title`, `director`, `id_genre`, `descrip`, `img`) VALUES
 (7, 'El padrino', 'Francis Ford Coppola', 8, 'Don Vito Corleone es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York en los años 40. El hombre tiene cuatro hijos: Connie, Sonny, Fredo y Michael, que no quiere saber nada de los negocios sucios de su padre. Cuando otro capo, Sollozzo, intenta asesinar a Corleone, empieza una cruenta lucha entre los distintos clanes.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdohemWWsH0BxkyIhJwlmTJmBK1Ix2jCXntg&s'),
 (8, 'Kill bill', 'Quentin Tarantino', 5, 'Mamba Negra es una asesina que, el día de su boda, es atacada por los miembros de la banda de su jefe, Bill. Sin embargo consigue sobrevivir, aunque queda en coma. Cinco años después despierta, con un deseo de venganza.', 'https://clarovideocdn8.clarovideo.net/PARAMOUNT/PELICULAS/HDPSFF1744S1SDM/EXPORTACION_WEB/STILLS/HDPSFF1744S1SDM-STILL-02.jpg'),
 (9, 'Jurassic Park', 'Steven Spielberg', 6, 'El multimillonario John Hammond hace realidad su sueño de clonar dinosaurios del Jurásico y crear con ellos un parque temático en una isla. Antes de abrir el parque al público general, Hammond invita a una pareja de científicos y a un matemático para que comprueben la viabilidad del proyecto. Sin embargo, el sistema de seguridad falla y los dinosaurios se escapan.\r\n', 'https://www.clarin.com/img/2021/05/21/wJI65YJFm_1200x0__1.jpg'),

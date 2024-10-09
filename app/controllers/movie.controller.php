@@ -29,7 +29,8 @@ class MovieController
       $movie = $this->model->getMovieById($id);
       return $this->view->showMovieById($movie);
    }
-   function showEditMovies(){
+   function showEditMovies()
+   {
       $movies = $this->model->getMovies();
       return $this->view->showEditMovies($movies);
    }
@@ -40,20 +41,38 @@ class MovieController
    }
    function addMovie()
    {
+      $genres = $this->genreModel->getGenres();
       if (
-         !isset($_POST['title']) || empty($_POST['title']) ||
-         $_POST(['director']) || empty($_POST['director']) ||
-         $_POST(['genre']) || empty($_POST['genre']) ||
-         $_POST(['img']) || empty($_POST['img'])
+         !isset($_POST['title']) || empty($_POST['title'])
       ) {
-         return $this->view->showFormAdd('Falta completar el nombre de usuario');
+         $this->view->showFormAdd($genres);
+      }
+      if (
+         !isset($_POST['director']) || empty($_POST['director'])
+      ) {
+         $this->view->showFormAdd($genres);
+      }
+      if (
+         !isset($_POST['genre']) || empty($_POST['genre'])
+      ) {
+         $this->view->showFormAdd($genres);
+      }
+      if (
+         !isset($_POST['description']) || empty($_POST['description'])
+      ) {
+         $this->view->showFormAdd($genres);
+      }
+      if (
+         !isset($_POST['img']) || empty($_POST['img'])
+      ) {
+         $this->view->showFormAdd($genres);
       }
       $title = $_POST['title'];
       $director = $_POST['director'];
       $id_genre = $_POST['genre'];
       $description = $_POST['description'];
       $img = $_POST['img'];
-      
+
       $id = $this->model->insertMovie($title, $director, $id_genre, $description, $img);
       header('Location: ' . BASE_URL);
    }

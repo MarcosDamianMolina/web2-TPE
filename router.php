@@ -60,19 +60,17 @@ switch ($params[0]) {
     case 'logout':
         $controller = new AuthController();
         $controller->logout();
-    case 'mostrarAgregar':
-        // saque la validacion del user
-        $controller = new MovieController($res);
-        $controller->showaddMovie();
         break;
     case 'editar':
+        sessionAuthMiddleware($res);
         $controller = new MovieController($res);
         $controller->showEditMovies();
         break;
     case 'agregar':
-        // saque la validacion del user
+        sessionAuthMiddleware($res);
         $controller = new MovieController($res);
         $controller->addMovie();
+        break;
     default:
         $controller = new ErrorController();
         $controller->showError("Error 404 Not Found");
