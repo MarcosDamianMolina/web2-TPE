@@ -63,13 +63,34 @@ switch ($params[0]) {
         break;
     case 'editar':
         sessionAuthMiddleware($res);
+        if (isset($params[1]) && $params[1] == "categoria"){
+            $controller = new GenreController($res);
+            $controller->editGenre();
+        }
+        else if (isset($params[1])) {
+            $controller = new MovieController($res);
+            $controller->editMovie($params[1]);
+        } else {
+            $controller = new MovieController($res);
+            $controller->showEditMovies();
+        }
+        break;
+    case 'update':
         $controller = new MovieController($res);
-        $controller->showEditMovies();
+        $controller->updateMovie($params[1]);
         break;
     case 'agregar':
         sessionAuthMiddleware($res);
         $controller = new MovieController($res);
+        $controller->showAddMovie();
+        break;
+    case 'add':
+        $controller = new MovieController($res);
         $controller->addMovie();
+        break;
+    case 'eliminar':
+        $controller = new MovieController($res);
+        $controller->deleteMovie($params[1]);
         break;
     default:
         $controller = new ErrorController();

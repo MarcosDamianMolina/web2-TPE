@@ -22,4 +22,8 @@ class MovieView
     {
         require_once 'templates/edit.phtml';
     }
+    public function showEditMovie($movie, $genres)
+    {
+        require_once 'templates/form_edit_movie.phtml';
+    }
 }

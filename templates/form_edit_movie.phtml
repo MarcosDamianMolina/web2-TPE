@@ -1,18 +1,19 @@
+
 <?php require_once 'layouts/header.phtml' ?>
 
 <div class="row justify-content-center">
-<form action="add" method="POST" class="row justify-content-center my-4 col-lg-6">
+<form action="update/<?= $movie->id ?>" method="POST" class="row justify-content-center my-4 col-lg-6">
     <div class="row">
         <div class="col-9">
             <div class="form-group">
                 <label>Título</label>
-                <input required name="title" type="text" class="form-control">
+                <input required name="title" type="text" class="form-control" value="<?= $movie->title ?>">
             </div>
         </div>
         <div class="col-9">
             <div class="form-group">
                 <label>Director</label>
-                <input required name="director" type="text" class="form-control">
+                <input required name="director" type="text" class="form-control" value="<?= $movie->director ?>">
             </div>
         </div>
 
@@ -29,17 +30,17 @@
         <div class="col-9">
             <div class="form-group">
                 <label>Portada</label>
-                <input required name="img" type="text" class="form-control"placeholder="Url de la imagen"> 
+                <input required name="img" type="text" class="form-control" value="<?= $movie->img ?>"> 
             </div>
         </div>
     </div>
 
     <div class="form-group">
         <label>Descripcion</label>
-        <textarea name="descrip" class="form-control" rows="3"></textarea>
+        <textarea name="descrip" class="form-control" rows="3" value="<?= $movie->descrip ?>"></textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+    <button type="submit" class="btn btn-primary mt-2 mb-2">Guardar</button>
 </form>
 </div>
 

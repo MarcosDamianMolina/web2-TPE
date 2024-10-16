@@ -31,16 +31,16 @@ class MovieModel
         $movies = $query->fetchAll(PDO::FETCH_OBJ);
         return $movies;
     }
-    public function insertMovie($title, $director, $genre, $description, $img){
-        $query = $this->db->prepare('INSERT INTO movie(title, director, genre, descrip, img) VALUES (?, ?, ?, ?, ?)');
-        $query->execute([$title, $director, $genre, $description, $img]);
+    public function insertMovie($title, $director, $genre, $descrip, $img){
+        $query = $this->db->prepare('INSERT INTO movie(title, director, id_genre, descrip, img) VALUES (?, ?, ?, ?, ?)');
+        $query->execute([$title, $director, $genre, $descrip, $img]);
     }
     public function removeMovie($id){
         $query = $this->db->prepare('DELETE FROM movie WHERE id = ?');
-        $query->execute($id);
+        $query->execute([$id]);
     }
     public function updateMovie($title, $director, $genre, $description, $img, $id){
-        $query = $this->db->prepare('UPDATE movie SET title = ?, director = ?, genre = ?, descrip = ?, img = ? WHERE id = ?');
+        $query = $this->db->prepare('UPDATE movie SET title = ?, director = ?, id_genre = ?, descrip = ?, img = ? WHERE id = ?');
         $query->execute([$title, $director, $genre, $description, $img, $id]);
     }
 }

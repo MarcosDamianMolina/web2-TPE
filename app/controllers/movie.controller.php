@@ -2,6 +2,7 @@
 require_once './app/models/movie.model.php';
 require_once './app/views/movie.view.php';
 require_once './app/models/genre.model.php';
+require_once 'error.controller.php';
 
 class MovieController
 {
@@ -41,44 +42,67 @@ class MovieController
    }
    function addMovie()
    {
-      $genres = $this->genreModel->getGenres();
-      if (
-         !isset($_POST['title']) || empty($_POST['title'])
-      ) {
-         $this->view->showFormAdd($genres);
+      if (!isset($_POST['title']) || empty($_POST['title'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar el título de la pelicula');
       }
-      if (
-         !isset($_POST['director']) || empty($_POST['director'])
-      ) {
-         $this->view->showFormAdd($genres);
+      if (!isset($_POST['director']) || empty($_POST['director'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar el director de la pelicula');
       }
-      if (
-         !isset($_POST['genre']) || empty($_POST['genre'])
-      ) {
-         $this->view->showFormAdd($genres);
+      if (!isset($_POST['genre']) || empty($_POST['genre'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar el genero de la pelicula');
       }
-      if (
-         !isset($_POST['description']) || empty($_POST['description'])
-      ) {
-         $this->view->showFormAdd($genres);
+      if (!isset($_POST['img']) || empty($_POST['img'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar la portada de la pelicula');
       }
-      if (
-         !isset($_POST['img']) || empty($_POST['img'])
-      ) {
-         $this->view->showFormAdd($genres);
-      }
+
       $title = $_POST['title'];
       $director = $_POST['director'];
       $id_genre = $_POST['genre'];
-      $description = $_POST['description'];
       $img = $_POST['img'];
+      $descrip = $_POST['descrip'];
 
-      $id = $this->model->insertMovie($title, $director, $id_genre, $description, $img);
+      $this->model->insertMovie($title, $director, $id_genre, $descrip, $img);
       header('Location: ' . BASE_URL);
+   }
+   function editMovie($id){
+      $movie = $this->model->getMovieById($id);
+      $genres = $this->genreModel->getGenres();
+      return $this->view->showEditMovie($movie, $genres);
+   }
+   function updateMovie($id){
+      if (!isset($_POST['title']) || empty($_POST['title'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar el título de la pelicula');
+      }
+      if (!isset($_POST['director']) || empty($_POST['director'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar el director de la pelicula');
+      }
+      if (!isset($_POST['genre']) || empty($_POST['genre'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar el genero de la pelicula');
+      }
+      if (!isset($_POST['img']) || empty($_POST['img'])) {
+         $controller = new ErrorController();
+         $controller->showError('Falta completar la portada de la pelicula');
+      }
+
+      $title = $_POST['title'];
+      $director = $_POST['director'];
+      $id_genre = $_POST['genre'];
+      $img = $_POST['img'];
+      $descrip = $_POST['descrip'];
+
+      $this->model->updateMovie($title, $director, $id_genre, $img, $descrip, $id);
+      header('Location: http://localhost/WEB2_2024/web2-TPE/editar');
    }
    function deleteMovie($id)
    {
-      $movie = $this->model->getMovieById($id);
       $this->model->removeMovie($id);
+      header('Location: http://localhost/WEB2_2024/web2-TPE/editar');
    }
 }
