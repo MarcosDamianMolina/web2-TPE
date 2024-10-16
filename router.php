@@ -65,7 +65,11 @@ switch ($params[0]) {
         sessionAuthMiddleware($res);
         if (isset($params[1]) && $params[1] == "categoria"){
             $controller = new GenreController($res);
-            $controller->editGenre();
+            if (isset($params[2])){
+                $controller->editGenre($params[2]);
+            } else {
+            $controller->editGenres();
+            }
         }
         else if (isset($params[1])) {
             $controller = new MovieController($res);

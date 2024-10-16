@@ -16,4 +16,11 @@ class GenreModel
         $genres = $query->fetchAll(PDO::FETCH_OBJ);
         return $genres;
     }
+    public function getGenreById($id){
+        $query = $this->db->prepare('SELECT * FROM genre WHERE id = ?');
+        $query->execute($id);
+
+        $genre = $query->fetch(PDO::FETCH_OBJ);
+        return $genre;
+    }
 }

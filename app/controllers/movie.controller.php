@@ -97,7 +97,7 @@ class MovieController
       $img = $_POST['img'];
       $descrip = $_POST['descrip'];
 
-      $this->model->updateMovie($title, $director, $id_genre, $img, $descrip, $id);
+      $this->model->updateMovie($title, $director, $id_genre, $descrip, $img, $id);
       header('Location: http://localhost/WEB2_2024/web2-TPE/editar');
    }
    function deleteMovie($id)

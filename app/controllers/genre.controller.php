@@ -15,8 +15,12 @@ class GenreController
         $genres = $this->model->getGenres();
         return $this->view->showGenres($genres);
     }
-    function editGenre(){
+    function editGenres(){
         $genres = $this->model->getGenres();
         return $this->view->showEditGenres($genres);
+    }
+    function editGenre($id){
+        $genre = $this->model->getGenreById($id);
+        return $this->view->showEditGenre($genre);
     }
 }
