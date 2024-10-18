@@ -2,7 +2,7 @@
 require_once './app/models/movie.model.php';
 require_once './app/views/movie.view.php';
 require_once './app/models/genre.model.php';
-require_once 'error.controller.php';
+require_once './app/views/error.view.php';
 
 class MovieController
 {
@@ -43,20 +43,20 @@ class MovieController
    function addMovie()
    {
       if (!isset($_POST['title']) || empty($_POST['title'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar el título de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar el título de la pelicula');
       }
       if (!isset($_POST['director']) || empty($_POST['director'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar el director de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar el director de la pelicula');
       }
       if (!isset($_POST['genre']) || empty($_POST['genre'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar el genero de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar el genero de la pelicula');
       }
       if (!isset($_POST['img']) || empty($_POST['img'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar la portada de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar la portada de la pelicula');
       }
 
       $title = $_POST['title'];
@@ -75,20 +75,20 @@ class MovieController
    }
    function updateMovie($id){
       if (!isset($_POST['title']) || empty($_POST['title'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar el título de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar el título de la pelicula');
       }
       if (!isset($_POST['director']) || empty($_POST['director'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar el director de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar el director de la pelicula');
       }
       if (!isset($_POST['genre']) || empty($_POST['genre'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar el genero de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar el genero de la pelicula');
       }
       if (!isset($_POST['img']) || empty($_POST['img'])) {
-         $controller = new ErrorController();
-         $controller->showError('Falta completar la portada de la pelicula');
+         $errorView = new ErrorView();
+         $errorView->showError('Falta completar la portada de la pelicula');
       }
 
       $title = $_POST['title'];

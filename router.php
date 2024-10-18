@@ -2,7 +2,7 @@
 require_once 'libs/response.php';
 require_once 'app/middlewares/session.auth.middleware.php';
 require_once 'app/controllers/movie.controller.php';
-require_once 'app/controllers/error.controller.php';
+require_once 'app/views/error.view.php';
 require_once 'app/controllers/genre.controller.php';
 require_once 'app/controllers/auth.controller.php';
 
@@ -63,15 +63,14 @@ switch ($params[0]) {
         break;
     case 'editar':
         sessionAuthMiddleware($res);
-        if (isset($params[1]) && $params[1] == "categoria"){
+        if (isset($params[1]) && $params[1] == "categoria") {
             $controller = new GenreController($res);
-            if (isset($params[2])){
+            if (isset($params[2])) {
                 $controller->editGenre($params[2]);
             } else {
-            $controller->editGenres();
+                $controller->editGenres();
             }
-        }
-        else if (isset($params[1])) {
+        } else if (isset($params[1])) {
             $controller = new MovieController($res);
             $controller->editMovie($params[1]);
         } else {
@@ -89,15 +88,26 @@ switch ($params[0]) {
         $controller->showAddMovie();
         break;
     case 'add':
-        $controller = new MovieController($res);
-        $controller->addMovie();
+        if (isset($params[1])) {
+            $controller = new GenreController($res);
+            $controller->addGenre($params[1]);
+        } else {
+            $controller = new MovieController($res);
+            $controller->addMovie();
+        }
         break;
     case 'eliminar':
-        $controller = new MovieController($res);
-        $controller->deleteMovie($params[1]);
+        if ($params[1] == "categoria") {
+            $controller = new GenreController($res);
+            $controller->deleteGenre($params[2]);
+            break;
+        } else {
+            $controller = new MovieController($res);
+            $controller->deleteMovie($params[1]);
+        }
         break;
     default:
-        $controller = new ErrorController();
-        $controller->showError("Error 404 Not Found");
+        $errorView = new ErrorView();
+        $errorView->showError("Error 404 Not Found");
         break;
 }
