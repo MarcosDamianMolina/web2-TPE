@@ -42,7 +42,7 @@ class GenreController
         }
         $genre = $_POST['genre'];
         $this->model->updateGenre($id, $genre);
-        header('Location: http://localhost/WEB2_2024/web2-TPE/editar/categoria');
+        header('Location: http://localhost/WEB2_2024/web2-TPE/categorias');
     }
     function deleteGenre($id)
     {
@@ -50,7 +50,7 @@ class GenreController
         $movies = $movieModel->getMoviesByGenre($id);
         if (count($movies) != 0) {
             $errorView = new ErrorView();
-            $errorView->showError("No se puede eliminar porque hay peliculas en ésta categoria");
+            $errorView->showError("No se puede eliminar porque hay peliculas en esta categoria");
         } else {
             $this->model->removeGenre($id);
             header('Location: http://localhost/WEB2_2024/web2-TPE/editar/categoria');
