@@ -30,22 +30,18 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'home':
-        //saque la validacion del user
         $controller = new MovieController($res);
         $controller->showMovies();
         break;
     case 'pelicula':
-        // saque la validacion del user
         $controller = new MovieController($res);
         $controller->showMovieById($params[1]);
         break;
     case 'categorias':
-        // saque la validacion del user
         $controller = new GenreController($res);
         $controller->showGenres();
         break;
     case 'categoria':
-        // saque la validacion del user
         $controller = new MovieController($res);
         $controller->showMoviesByGenre($params[1]);
         break;

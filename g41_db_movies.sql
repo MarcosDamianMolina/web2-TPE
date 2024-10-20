@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 01:18:17
+-- Tiempo de generación: 20-10-2024 a las 15:59:55
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -37,10 +37,12 @@ CREATE TABLE `genre` (
 --
 
 INSERT INTO `genre` (`id`, `genre`) VALUES
-(5, 'accion'),
-(6, 'aventura'),
-(7, 'comedia'),
-(8, 'crimen');
+(5, 'Accion'),
+(6, 'Aventura'),
+(7, 'Comedia'),
+(8, 'Crimen'),
+(9, 'Terror'),
+(12, 'Ciencia-ficcion');
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,6 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`id`, `title`, `director`, `id_genre`, `descrip`, `img`) VALUES
-(7, 'El padrino', 'Francis Ford Coppola', 8, 'Don Vito Corleone es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York en los años 40. El hombre tiene cuatro hijos: Connie, Sonny, Fredo y Michael, que no quiere saber nada de los negocios sucios de su padre. Cuando otro capo, Sollozzo, intenta asesinar a Corleone, empieza una cruenta lucha entre los distintos clanes.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdohemWWsH0BxkyIhJwlmTJmBK1Ix2jCXntg&s'),
 (8, 'Kill bill', 'Quentin Tarantino', 5, 'Mamba Negra es una asesina que, el día de su boda, es atacada por los miembros de la banda de su jefe, Bill. Sin embargo consigue sobrevivir, aunque queda en coma. Cinco años después despierta, con un deseo de venganza.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8wAHtrHuAsLx_IwBMYHdEE65lmMNIHt60cg&s'),
 (9, 'Jurassic Park', 'Steven Spielberg', 6, 'El multimillonario John Hammond hace realidad su sueño de clonar dinosaurios del Jurásico y crear con ellos un parque temático en una isla. Antes de abrir el parque al público general, Hammond invita a una pareja de científicos y a un matemático para que comprueben la viabilidad del proyecto. Sin embargo, el sistema de seguridad falla y los dinosaurios se escapan.\r\n', 'https://www.clarin.com/img/2021/05/21/wJI65YJFm_1200x0__1.jpg'),
 (10, 'Rapido y furioso', 'Rob Cohen', 5, 'Cada noche, Los Ángeles es testigo de alguna carrera de coches. Últimamente ha aparecido un nuevo corredor, todos saben que es duro y que es rápido, pero lo que no saben es que es un detective con la determinación de salir victorioso.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7z1e4lie-fI0BKNJUgVEz2eALOzXVHbVLpg&s'),
@@ -71,7 +72,8 @@ INSERT INTO `movie` (`id`, `title`, `director`, `id_genre`, `descrip`, `img`) VA
 (16, 'El secreto de sus ojos', 'Juan José Campanella', 8, 'Benjamín Espósito es un oficial de un Juzgado de Instrucción de Buenos Aires que acaba de jubilarse. Su sueño es escribir una novela y, para ello, intentará dar solución a un caso abierto desde hace varias décadas, del cual fue testigo y protagonista. Reviviendo el caso, vuelve también a su memoria el recuerdo de una mujer, a quien ha amado en silencio durante todos esos años.', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTiuZCK6QazCgK87TNCP4pt-sWS4pV90Ga3TqObxXaYLqxAvuQI'),
 (17, 'Terminator', 'James Cameron', 5, 'En el año 2029 las máquinas dominan el mundo. Los rebeldes que luchan contra ellas tienen como líder a John Connor, un hombre que nació en los años ochenta. Para eliminarlo y así acabar con la rebelión, las máquinas envían al pasado el robot Terminator con la misión de matar a Sarah Connor, la madre de John, e impedir así su nacimiento. Sin embargo, un hombre del futuro intentará protegerla.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7btnbUsG8w5WfXa5p7AzHgX8fM02rQzA9QA&s'),
 (18, 'Piratas del Caribe: la maldicion del Perla Negra ', 'Gore Verbinski', 6, 'El capitán Barbossa le roba el barco al pirata Jack Sparrow y secuestra a Elizabeth, amiga de Will Turner. Barbossa y su tripulación son víctimas de un conjuro que los condena a vivir eternamente y a transformarse cada noche en esqueletos vivientes.', 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/CDFF38C4E0D5966152BA4087F85154710B102E4DD7A8ABA5A80EC815A7F581CE/scale?width=1200&aspectRatio=1.78&format=webp'),
-(19, 'La Momia', 'Stephen Sommers', 6, 'Rick O\'Connell y un compañero descubren las ruinas de Hamunaptra. Después vuelven al mismo lugar con una egiptóloga y su hermano. Allí coinciden con un grupo de americanos que provocan la resurrección de la momia de un diabólico sacerdote egipcio.', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQjbeyUFhC4fVpbGTnirwdLHjjjx8gMcfjymFCQUz_GFd1oTBVN');
+(19, 'La Momia', 'Stephen Sommers', 6, 'Rick O\'Connell y un compañero descubren las ruinas de Hamunaptra. Después vuelven al mismo lugar con una egiptóloga y su hermano. Allí coinciden con un grupo de americanos que provocan la resurrección de la momia de un diabólico sacerdote egipcio.', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQjbeyUFhC4fVpbGTnirwdLHjjjx8gMcfjymFCQUz_GFd1oTBVN'),
+(20, 'Smile', 'Parker Finn', 9, 'Después de presenciar un incidente extraño y traumático que involucra a un paciente, la Dra. Rose Cotter comienza a experimentar sucesos aterradores que no puede explicar. A medida que un terror abrumador comienza a apoderarse de su vida, Rose debe enfrentar su inquietante pasado para poder sobrevivir y escapar de su nueva y horrible realidad.', 'https://pics.filmaffinity.com/Smile-692937346-large.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,13 +126,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
